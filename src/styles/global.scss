@@ -1,0 +1,109 @@
+// Import Bulma
+@import "~bulma/bulma";
+@import "~bulma/bulma.sass";
+@import "~bulma/sass/utilities/initial-variables";
+
+@import "~bulma/sass/elements/title";
+@import "~bulma/sass/elements/button";
+
+@import "~bulma/sass/form/input-textarea";
+
+.pageContainer {
+	position: relative;
+	min-height: 100vh;
+}
+
+.contentWrapper {
+	width: $content-width;
+	max-width: $max-content-width;
+	margin: auto;
+	padding-bottom: $footer-height;
+	padding-left: 0;
+}
+
+@font-face {
+	font-family: ETModules;
+	src: url("./fonts/modules.ttf");
+}
+
+@mixin button-base {
+	color: $divi-button-color;
+	font-size: 20px;
+	font-weight: 500;
+	padding: 0.3em 1em;
+	line-height: 1.7em;
+	background-color: transparent;
+	background-size: cover;
+	background-position: 50%;
+	background-repeat: no-repeat;
+	border: 2px solid;
+	border-radius: 3px;
+	transition: all 300ms ease;
+	transition-property: all;
+	cursor: pointer;
+}
+
+.diviButton {
+	@include button-base();
+
+	&::after {
+		font-size: 32px;
+		line-height: 1em;
+		content: "\35";
+		opacity: 0;
+		position: absolute;
+		margin-left: -1em;
+		transition: all 0.2s;
+		text-transform: none;
+		font-feature-settings: "kern" off;
+		font-variant: none;
+		font-style: normal;
+		font-weight: 400;
+		font-feature-settings: "kern" off;
+		text-shadow: none;
+		font-family: ETModules;
+	}
+
+	&:hover {
+		border: 2px solid transparent;
+		padding: 0.3em 2em 0.3em 0.7em;
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+
+	&:hover::after {
+		opacity: 1;
+		margin-left: 0;
+	}
+}
+
+.diviLoadingButton {
+	@include button-base();
+	content: "";
+	position: relative;
+	color: transparent;
+	border-color: $divi-button-color;
+
+	&::after {
+		content: "";
+		color: $divi-button-color;
+		position: absolute;
+		left: calc(50% - (1em * .5));
+		top: calc(50% - (1em * .5));
+		animation: spin 0.5s infinite linear;
+		border: 2px solid;
+		border-right-color: transparent;
+		border-top-color: transparent;
+		border-radius: 9999px;
+		height: 1em;
+		width: 1em;
+	}
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

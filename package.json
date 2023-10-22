@@ -6,11 +6,42 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "email": "email dev --dir src/components/emails --port 3001"
   },
   "dependencies": {
+    "@elasticemail/elasticemail-client": "^4.0.23",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-email/button": "0.0.11",
+    "@react-email/container": "0.0.10",
+    "@react-email/font": "0.0.4",
+    "@react-email/head": "^0.0.6",
+    "@react-email/heading": "0.0.9",
+    "@react-email/html": "0.0.6",
+    "@react-email/img": "0.0.6",
+    "@react-email/link": "0.0.6",
+    "@react-email/preview": "0.0.7",
+    "@react-email/render": "0.0.8",
+    "@react-email/section": "0.0.10",
+    "@react-email/text": "0.0.6",
+    "bulma": "^0.9.4",
+    "isomorphic-dompurify": "^1.9.0",
+    "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.6"
+    "react-email": "1.9.5",
+    "react-google-recaptcha": "^3.1.0",
+    "sass": "^1.69.4",
+    "touch-cli": "^0.0.1",
+    "zod-form-data": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.8",
+    "@types/react": "^18.2.31",
+    "typescript": "^5.2.2"
   }
 }

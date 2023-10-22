@@ -29,8 +29,36 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploment needs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Requests on my domain go to different places, since this is stiched with a wordpress website.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Requests to `/` are proxied to the WordPress site
+- Requests to `/app/` are proxied to the next.js site
+- Requests to `/api/` are proxied to the next.js api routes
+
+The next.js app is configured to expect all requests come from `https://domain-name/app/`. This proxy can be done with the following proxy configuration:
+```
+<VirtualHost *:80>
+    ServerName yourdomain.com
+
+    # WordPress
+    DocumentRoot /path/to/wordpress
+    <Directory /path/to/wordpress>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Next.js application
+    ProxyPass /app/ http://localhost:3000/
+    ProxyPassReverse /app/ http://localhost:3000/
+
+    # Next.js API route
+    ProxyPass /app/api/ http://localhost:3000/api/
+    ProxyPassReverse /app/api/ http://localhost:3000/api/
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
