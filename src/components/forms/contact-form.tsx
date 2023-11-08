@@ -135,7 +135,7 @@ export default function ContactForm() {
         <div className="content">
             <div className={`notification is-success ${showSuccess ? "" : "is-hidden"}`}>
                 <button className="delete" onClick={() => setShowSuccess(false)}></button>
-                Success! I've recieved your email. If you selected to recieve a copy you should have also gotten it in yor mailbox. Thanks again for reachingo out and I'll get back to you as soon as possible.
+                Success! I've received your email. If you selected to receive a copy you should have also gotten it in yor mailbox. Thanks again for reaching out and I'll get back to you as soon as possible.
             </div>
             <div className={`notification is-danger ${showError ? "" : "is-hidden"}`}>
                 <button className="delete" onClick={() => setShowError(false)}></button>
