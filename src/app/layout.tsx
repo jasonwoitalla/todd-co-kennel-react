@@ -1,6 +1,6 @@
 import "@/styles/global.scss";
 import Header from "@/components/common/header";
-import { getSiteMetadata, getMenuItems, getLogoImage } from "@/lib/fetcher";
+import { getSiteMetadata, getMenuItems } from "@/lib/fetcher";
 import React from "react";
 import Footer from "@/components/common/footer";
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -15,13 +15,12 @@ export async function generateMetadata(): Promise<Record<string, string>> {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const menuItems = await getMenuItems();
-  const logoUrl = await getLogoImage();
 
   return (
     <html lang="en">
       <body>
         <div className="pageContainer">
-          <Header menuItems={menuItems} logoUrl={logoUrl}/>
+          <Header menuItems={menuItems} />
 				  <div className="contentWrapper">
 					  <main>{children}</main>
 				  </div>

@@ -61,21 +61,6 @@ export async function getMenuItems(): Promise<MenuItem[]> {
     return data.menuItems.nodes;
 }
 
-export async function getLogoImage(): Promise<string> {
-    const data = await fetchApi(`
-        query GetLogoImage {
-            mediaItems(where: {title: "Logo-main"}) {
-            nodes {
-                sourceUrl
-            }
-            }
-        }`
-    );
-
-    console.log("Logo image: " + JSON.stringify(data));
-    return data.mediaItems.nodes[0].sourceUrl;
-}
-
 export async function getPageContent(uri: string): Promise<string> {
     const data = await fetchApi(`
         query PageContent($uri: String) {
