@@ -16,7 +16,7 @@ export default function Header(props: Props) {
     const pathname = usePathname();
     console.log("Pathname: " + pathname);
 
-    const siteLogo = process.env.WORDPRESS_URL + "/wp-content/uploads/2018/12/Logo-main.png";
+    const siteLogo = process.env.NEXT_PUBLIC_WORDPRESS_URL + "/wp-content/uploads/2018/12/Logo-main.png";
 
     function sanatizeMenuPath(menuItemPath) {
         if(!menuItemPath) {
