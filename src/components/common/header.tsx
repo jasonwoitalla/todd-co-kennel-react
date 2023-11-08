@@ -22,7 +22,7 @@ export default function Header(props: Props) {
             <nav className={`navbar ${styles.navigation}`} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link href="/" className={styles.logo}>
-                        <Image src={props.logoUrl} alt="Todd Co Kennel Logo" width={164} height={46} />
+                        <Image src={process.env.ASSET_PREFIX + "/" + props.logoUrl} alt="Todd Co Kennel Logo" width={164} height={46} />
                     </Link>
 
                     <button role="button" className={`navbar-burger ${active ? "is-active" : ""}`} aria-label="menu" aria-expanded="false" onClick={() => setActive(!active)}>

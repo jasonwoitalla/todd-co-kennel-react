@@ -2,9 +2,14 @@
 const path = require("path");
 const dotenv = require("dotenv");
 
-dotenv.config({ path: path.join(__dirname, '../../private_html/.env.local') });
+const isProd = process.env.NODE_ENV === 'production';
+
+if(isProd) {
+	dotenv.config({ path: path.join(__dirname, '../../private_html/.env.local') });
+}
 
 const nextConfig = {
+	assetPrefix: isProd ? "/app" : undefined,
     reactStrictMode: true,
 	sassOptions: {
 		includePaths: [path.join(__dirname, "styles")],
