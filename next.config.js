@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const path = require("path");
+const dotenv = require("dotenv");
+
+dotenv.config({ path: path.join(__dirname, '../../private_html/.env.local') });
 
 const nextConfig = {
-	basePath: '/app',
-	assetPrefix: '/app/',
     reactStrictMode: true,
 	sassOptions: {
 		includePaths: [path.join(__dirname, "styles")],
